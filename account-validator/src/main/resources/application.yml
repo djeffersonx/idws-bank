@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: account-validator
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-nodes: elasticsearch:9300
+      cluster-name: docker-cluster
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude:
+
+core-banking:
+  url: http://localhost:8081
+
+person:
+  url: http://localhost:8082
