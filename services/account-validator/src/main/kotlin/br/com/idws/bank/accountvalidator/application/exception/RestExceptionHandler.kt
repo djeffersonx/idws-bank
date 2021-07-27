@@ -1,7 +1,7 @@
 package br.com.idws.bank.accountvalidator.application.exception
 
 import br.com.idws.bank.accountvalidator.domain.model.validation.ValidationException
-import br.com.idws.bank.accountvalidator.infrastructure.fuel.ApiException
+import br.com.idws.bank.accountvalidator.infrastructure.fuel.CommunicationException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -26,9 +26,9 @@ class RestExceptionHandler : ResponseEntityExceptionHandler() {
         ex: ValidationException, request: WebRequest?
     ) = errorResponse(HttpStatus.BAD_REQUEST, ApiErrors(ex.errors.map { "${it.key}: ${it.message}" }))
 
-    @ExceptionHandler(ApiException::class)
+    @ExceptionHandler(CommunicationException::class)
     protected fun handleApiException(
-        ex: ApiException, request: WebRequest?
+        ex: CommunicationException, request: WebRequest?
     ) = errorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ApiErrors(ex.errors))
 
     @ExceptionHandler(MethodArgumentTypeMismatchException::class)

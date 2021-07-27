@@ -43,7 +43,7 @@ dependencies {
     implementation ("com.github.kittinunf.fuel:fuel-jackson:2.3.1")
 
     //implementation("io.prometheus:simpleclient_common:0.11.0")
-    //implementation("org.springframework.cloud:spring-cloud-starter-zipkin:2.2.8.RELEASE")
+    //implementation("org.springframework.cloudLogstashTcpSocketAppender:spring-cloud-starter-zipkin:2.2.8.RELEASE")
     //runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

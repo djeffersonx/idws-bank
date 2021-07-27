@@ -10,11 +10,10 @@ class AccountValidatorService(
     val accountCreateValidators: List<AccountCreateValidator>
 ) {
 
-    fun validateToCreate(account: Account) {
+    fun validateToCreate(account: Account) =
         accountCreateValidators.map { it.validate(account) }
             .flatten()
             .takeIf { it.isNotEmpty() }
             ?.let { throw ValidationException(it) }
-    }
 
 }

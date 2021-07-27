@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component
 @Component
 class PersonCreateValidator(
     @Value("\${person.url}")
-    val coreBankingUrl: String,
+    val personUrl: String,
     objectMapper: ObjectMapper
-) : AbstractValidator("$coreBankingUrl/validation/create", objectMapper)
+) : AbstractValidator("$personUrl/validation/create", objectMapper)

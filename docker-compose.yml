@@ -3,8 +3,8 @@ version: "3.7"
 services:
 
   account-validator:
-    container_name: account-validator
-    build: account-validator
+    container_name: idws-account-validator
+    build: services/account-validator
     depends_on:
       - logstash
     ports:

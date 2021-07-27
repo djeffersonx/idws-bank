@@ -13,11 +13,10 @@ open class AbstractValidator(
     val mapper: ObjectMapper
 ) : AccountCreateValidator {
 
-    override fun validate(account: Account): List<Error> {
-        return Fuel.post(url)
+    override fun validate(account: Account): List<Error> =
+        Fuel.post(url)
             .objectBody(account, mapper = mapper)
             .getOrError { _, _, _ -> emptyList<Error>() } as List<Error>
-    }
 
 }
 
